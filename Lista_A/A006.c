@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 int main(int argc, char const *argv[]){
+    printf("Calculo de desconto");
     float totalCompra;
     float porcentagemDeDesconto;
     printf("Total da compra: ");
