@@ -11,10 +11,10 @@ int main(int argc, char const *argv[]){
 
     printf("Digite o numero de eleitores: ");
     scanf("%d", &eleitores);
-    printf("Digite o numero de votos nulos: ");
-    scanf("%d", &votos_nulos);
     printf("Digite o numero de votos brancos: ");
     scanf("%d", &votos_brancos);
+    printf("Digite o numero de votos nulos: ");
+    scanf("%d", &votos_nulos);
     printf("Digite o numero de votos validos: ");
     scanf("%d", &votos_validos);
     ausentes = eleitores - (votos_brancos+votos_nulos+votos_validos);
