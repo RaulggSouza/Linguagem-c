@@ -2,9 +2,7 @@
 #include <stdlib.h>
 
 int main(int argc, char const *argv[]){
-    printf("Eleitores:\n");
     int idadeEleitor;
-    printf("Imprima a idade do eleitor: ");
     scanf("%d", &idadeEleitor);
 
     if(idadeEleitor <= 15){
