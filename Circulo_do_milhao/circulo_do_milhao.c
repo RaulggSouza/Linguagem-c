@@ -32,7 +32,6 @@ int main(int argc, char const *argv[]){
             if (trocasEfetuadas == x){
                 printf("Eliminacao %d: %d\n", x, procurado);
             }
-            
         }
         i++;
         if (i >= n){
@@ -45,5 +44,6 @@ int main(int argc, char const *argv[]){
             break;
         }
     }
+    free(participantes);
     return 0;
 }
