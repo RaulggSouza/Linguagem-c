@@ -11,7 +11,7 @@ int main(int argc, char const *argv[]){
     int v2;
     scanf("%d", &v2);
     
-    if(x1 < x2 && v1 > v2 || x1 > x2 && v1 < v2){
+    if((x1 < x2 && v1 > v2 || x1 > x2 && v1 < v2) && ((x1+v1) % (x2+v2) == 0 || (x2+v2) % (x1+v1) == 0)){
         printf("SIM");
     }else{
         printf("NAO");
