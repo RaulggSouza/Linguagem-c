@@ -1,13 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int multiplicacao(int a, int b){
-    int mult = 0;
-    for (int i = 0; i < b; i++){
-        mult += a;
-    }
-    return mult;
-}
 
 int main(int argc, char const *argv[]){
     int base;
@@ -15,8 +8,9 @@ int main(int argc, char const *argv[]){
     int expo;
     scanf("%d", &expo);
     int pot = 1;
+    //2³ = 2*2*2
     for(int i = 1; i <= expo; i++){
-        pot = multiplicacao(pot, base);
+        pot *= base;
     }
     printf("%d", pot);
     return 0;
