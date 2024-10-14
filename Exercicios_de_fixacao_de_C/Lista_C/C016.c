@@ -1,25 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int is_primo(int n){
-    int contador = 0;
-    for(int i = n; i > 0; i--){
-        if (n%i == 0){
-            contador++;
-            if (contador > 2){
-                return 0;
-            }
-        }
-    }
-    return 1;
-}
-
 int main(int argc, char const *argv[]){
     int n;
     scanf("%d", &n);
     int soma_primo = 0;
+    int contador;
+    int primo;
     for (int i = n; i > 1; i--){
-        if (is_primo(i)){
+        contador = 0;
+        primo = 1;
+        for(int j = i; j > 0; j--){
+            if (i%j == 0){
+                contador++;
+                if (contador > 2){
+                    primo = 0;
+                    break;
+                }
+            }
+        }
+        if (primo){
             soma_primo += i;
         }
     }
