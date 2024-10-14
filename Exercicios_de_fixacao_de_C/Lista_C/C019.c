@@ -7,11 +7,19 @@ int main(int argc, char const *argv[]){
     scanf("%d", &base);
     int expo;
     scanf("%d", &expo);
+    int soma = 0;
     int pot = 1;
-    //2³ = 2*2*2
-    for(int i = 1; i <= expo; i++){
-        pot *= base;
+    //3³ = 3*3*3 = (3+3+3)+(3+3+3)+(3+3+3)
+    //3² = 3*3 = 3+3+3
+    //3¹ = 3 = 3 [certo]
+    for (int i = 0; i < expo; i++){
+        for (int j = 0; j < base; j++){
+            soma += pot;
+        }
+        pot = soma;
+        soma = 0;
     }
+
     printf("%d", pot);
     return 0;
 }
