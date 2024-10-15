@@ -29,4 +29,33 @@ In this activity we have a [List of exercises](https://docs.google.com/document/
 8. Greater between three numbers
 9. Ordenate three numbers
 10. Classification of triangles
-### **List C**: 
+### **List C**: *Loops*
+1. Sequence 1 to N
+2. Sequence X to Y
+3. Sequences X to Y and Y to X
+4. Sum of sequences
+5. Sums of typed sequence
+6. Harmonic number
+7. Exponentiation
+8. Factorial
+9. Fibonacci sequence
+10. Greatest Common Divisor
+11. Counting occurrences of a number
+12. Greatest number
+13. Largest, smallest and sum
+14. Chocolate
+15. Prime number
+16. Sum of prime numbers
+17. Sum of fatorials
+18. Multiplication using sum
+19. Exponentiation using sum
+20. Ages
+21. Sum of digits
+22. Kangaroos
+23. Anniversary candles
+24. Two largest values
+25. Ordered values
+26. Ana's number
+27. Perfect number
+28. Maximum crescent segment
+29. Palindrome number
