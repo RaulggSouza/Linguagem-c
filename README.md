@@ -74,3 +74,9 @@ In this activity we have a [List of exercises](https://docs.google.com/document/
 12. Smallest in the first position and greatest in the last position
 13. List interleaving 
 14. Reversed list
+### **List E:** *Strings*
+1. Printing characters of a word
+2. Printing characters of a word in reverse
+3. Counting occurrences of a character in a string
+4. Palindrome
+5. Anagram
