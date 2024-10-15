@@ -21,5 +21,6 @@ int main(int argc, char const *argv[]){
         }
     }
     printf("%d", acima);
+    free(temperaturas);
     return 0;
 }

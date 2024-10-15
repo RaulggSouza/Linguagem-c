@@ -19,6 +19,6 @@ int main(int argc, char const *argv[]){
         }
     }
     printf("%d", contador);
-
+    free(list);
     return 0;
 }

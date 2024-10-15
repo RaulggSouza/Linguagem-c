@@ -13,5 +13,6 @@ int main(int argc, char const *argv[]){
     for (int i = n-1; i >= 0; i--){
         printf("%d ", list[i]);
     }
+    free(list);
     return 0;
 }

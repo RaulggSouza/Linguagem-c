@@ -22,5 +22,8 @@ int main(int argc, char const *argv[]){
     for(int i = 0; i < n; i++){
         printf("%d ", listC[i]);
     }
+    free(listA);
+    free(listB);
+    free(listC);
     return 0;
 }

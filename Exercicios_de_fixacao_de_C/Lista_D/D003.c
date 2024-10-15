@@ -17,6 +17,6 @@ int main(int argc, char const *argv[]){
         }
     }
     printf("%d\n%d", maior, pos_maior);
-
+    free(list);
     return 0;
 }

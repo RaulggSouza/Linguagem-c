@@ -32,5 +32,6 @@ int main(int argc, char const *argv[]){
     }else{
         printf("INVALIDO");
     }
+    free(list);
     return 0;
 }

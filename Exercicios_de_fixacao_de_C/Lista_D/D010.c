@@ -25,6 +25,7 @@ int main(int argc, char const *argv[]){
     for (int i = 0; i < b; i++){
         printf("%d ", listB[i]);
     }
-    
+    free(listA);
+    free(listB);
     return 0;
 }

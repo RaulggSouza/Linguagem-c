@@ -23,5 +23,7 @@ int main(int argc, char const *argv[]){
     for(int i = 0; i < b; i++){
         printf("%d ", vetB[i]);
     }
+    free(vetA);
+    free(vetB);
     return 0;
 }

@@ -20,5 +20,6 @@ int main(int argc, char const *argv[]){
         }
     }
     printf("%d", pos);
+    free(list);
     return 0;
 }
