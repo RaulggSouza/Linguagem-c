@@ -59,3 +59,18 @@ In this activity we have a [List of exercises](https://docs.google.com/document/
 27. Perfect number
 28. Maximum crescent segment
 29. Palindrome number
+### **List D:** *Lists*
+1. Above-avarage temperatures
+2. Print list
+3. Greatest value and position
+4. Search number
+5. Counting occurrences of a number II
+6. Print list in reverse order
+7. Swap adjacent values
+8. Sum of two lists
+9. Sum of a segment
+10. Lists of odd and even
+11. List of elements greater than a value;
+12. Smallest in the first position and greatest in the last position
+13. List interleaving 
+14. Reversed list
