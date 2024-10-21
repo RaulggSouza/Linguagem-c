@@ -80,3 +80,14 @@ In this activity we have a [List of exercises](https://docs.google.com/document/
 3. Counting occurrences of a character in a string
 4. Palindrome
 5. Anagram
+...
+## 2<sup>nd</sup> activity: *Million circle*
+There are N people sitting in a circle. The people are numbered sequentially from 1 to N. In the center of the circle, there is a billionaire who likes to give away millions. He will choose one person to win a miliion. To do this, he will eliminate N - 1 people from the circle, following two rules:
+- The billionaire eliminates one person from the circle and always skip the next one, continuing this process until only one person remains, who will be the winner of the prize.
+- The billionaire always starts eliminating the person number 2.
+
+For example: Considerating N = 1000, the billionaire eliminates the person number two, followed by 4, 6, 8, ..., 996, 998, 1000. At this point, he skips the number 1 and eliminates the person number 3, number 7 and so on.
+
+Given this scenario, write a program that, given the number N of people in the circle, informs:
+1. Which person will win the prize; and
+2. Which person will be the x-th to be eliminated."
