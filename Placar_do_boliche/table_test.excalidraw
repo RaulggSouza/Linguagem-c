@@ -5,8 +5,8 @@
   "elements": [
     {
       "type": "text",
-      "version": 1097,
-      "versionNonce": 1218375635,
+      "version": 1100,
+      "versionNonce": 2042344851,
       "isDeleted": false,
       "id": "fxmwm4yXkOWLmsCUxMS16",
       "fillStyle": "solid",
@@ -15,7 +15,7 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 639.2000122070312,
+      "x": 640,
       "y": 117.60009002685547,
       "strokeColor": "#ffffff",
       "backgroundColor": "transparent",
@@ -26,7 +26,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1730030304406,
+      "updated": 1730032070558,
       "link": null,
       "locked": false,
       "fontSize": 20,
