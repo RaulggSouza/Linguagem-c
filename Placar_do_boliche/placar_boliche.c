@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int* coletarJogadas(int* size){
+int* makeFrames(int* size){
     int* vet = (int*) malloc(sizeof(int)*(*size));
     for (int i = 0; i < (*size); i++){
-        int jogada;
-        scanf("%d", &jogada);
-        vet[i] = jogada;
-        if (jogada == 10 && i < (*size)-3){
+        int ball;
+        scanf("%d", &ball);
+        vet[i] = ball;
+        if (ball == 10 && i < (*size)-3){
             (*size)--;
         }
-        if (i == (*size)-2 && jogada != 10){
+        if (i == (*size)-2 && ball != 10){
             if (vet[i] + vet[i-1] < 10){
                 (*size)--;
             }
@@ -19,62 +19,60 @@ int* coletarJogadas(int* size){
     return vet;
 }
 
+void printNormalFrame(int* game, int i, int* is_first, int* frame, int* rounds_played){
+    if (game[i] < 10){
+        if (*is_first){
+            *frame = game[i];
+            printf("%d ", game[i]);
+            *is_first = 0;
+        } else {
+            *frame += game[i];
+            if (*frame == 10){
+                printf("/ | ");    
+            } else {
+                printf("%d | ", game[i]);
+            }
+            *is_first = 1;
+            *rounds_played++;
+        }
+    }else{
+        printf("X _ | ");
+        *rounds_played++;
+    }
+}
+
+void printLastFrame(int* game, int i, int* is_first, int* frame, int* rounds_played){
+    if (game[i] < 10){
+        if (*is_first){
+            *frame = game[i];
+            printf("%d ", game[i]);
+            *is_first = 0;
+        } else {
+            *frame += game[i];
+            if (*frame == 10){
+                printf("/ ");    
+            } else {
+                printf("%d ", game[i]);
+            }
+            *is_first = 1;
+            *rounds_played++;
+        }
+    }else{
+        printf("X ");
+        *rounds_played++;
+    }
+}
+
 int main(int argc, char const *argv[]){
     int size = 21;
-    int* jogadas = coletarJogadas(&size);
-    for(int i = 0; i < size; i++){
-        printf("%d ", jogadas[i]);
-    }
-    int rodada = 0;
-    int placarTotal = 0;
-    int is_first = 1;
-    int rodadas_jogadas = 1;
+    int* game = makeFrames(&size);
+    int frame = 0, final_pontuation = 0, is_first = 1, rounds_played = 1;
     printf("\n");
     for(int i = 0; i < size; i++){
-        if (rodadas_jogadas <= 9){
-            if (jogadas[i] < 10){
-                if (is_first){
-                    rodada = jogadas[i];
-                    printf("%d ", jogadas[i]);
-                    is_first = 0;
-                } else {
-                    rodada += jogadas[i];
-                    placarTotal += rodada;
-                    if (rodada == 10){
-                        printf("/ | ");    
-                    } else {
-                        printf("%d | ", jogadas[i]);
-                    }
-                    is_first = 1;
-                    rodadas_jogadas++;
-                }
-            }else if (jogadas[i] == 10){
-                printf("X _ | ");
-                placarTotal += 10;
-                rodadas_jogadas++;
-            }
+        if (rounds_played <= 9){
+            printNormalFrame(game, i, &is_first, &frame, &rounds_played);
         }else{
-            if (jogadas[i] < 10){
-                if (is_first){
-                    rodada = jogadas[i];
-                    printf("%d ", jogadas[i]);
-                    is_first = 0;
-                } else {
-                    rodada += jogadas[i];
-                    placarTotal += rodada;
-                    if (rodada == 10){
-                        printf("/ ");    
-                    } else {
-                        printf("%d ", jogadas[i]);
-                    }
-                    is_first = 1;
-                    rodadas_jogadas++;
-                }
-            }else if (jogadas[i] == 10){
-                printf("X ");
-                placarTotal += 10;
-                rodadas_jogadas++;
-            }
+            printLastFrame(game, i, &is_first, &frame, &rounds_played);
         }
     }
     return 0;
