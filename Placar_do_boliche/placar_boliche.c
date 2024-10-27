@@ -7,8 +7,13 @@ int* coletarJogadas(int* size){
         int jogada;
         scanf("%d", &jogada);
         vet[i] = jogada;
-        if (jogada == 10 && (*size) > 12){
+        if (jogada == 10 && i < (*size)-3){
             (*size)--;
+        }
+        if (i == (*size)-2 && jogada != 10){
+            if (vet[i] + vet[i-1] < 10){
+                (*size)--;
+            }
         }
     }
     return vet;
@@ -35,7 +40,11 @@ int main(int argc, char const *argv[]){
                 } else {
                     rodada += jogadas[i];
                     placarTotal += rodada;
-                    printf("%d | ", jogadas[i]);
+                    if (rodada == 10){
+                        printf("/ | ");    
+                    } else {
+                        printf("%d | ", jogadas[i]);
+                    }
                     is_first = 1;
                     rodadas_jogadas++;
                 }
@@ -53,7 +62,11 @@ int main(int argc, char const *argv[]){
                 } else {
                     rodada += jogadas[i];
                     placarTotal += rodada;
-                    printf("%d ", jogadas[i]);
+                    if (rodada == 10){
+                        printf("/ ");    
+                    } else {
+                        printf("%d ", jogadas[i]);
+                    }
                     is_first = 1;
                     rodadas_jogadas++;
                 }
