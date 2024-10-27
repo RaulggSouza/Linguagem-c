@@ -21,45 +21,91 @@ int* makeFrames(int* size){
 
 void printNormalFrame(int* game, int i, int* is_first, int* frame, int* rounds_played){
     if (game[i] < 10){
-        if (*is_first){
-            *frame = game[i];
+        if ((*is_first)){
+            (*frame) = game[i];
             printf("%d ", game[i]);
-            *is_first = 0;
+            (*is_first) = 0;
         } else {
-            *frame += game[i];
-            if (*frame == 10){
+            (*frame) += game[i];
+            if ((*frame) == 10){
                 printf("/ | ");    
             } else {
                 printf("%d | ", game[i]);
             }
-            *is_first = 1;
-            *rounds_played++;
+            (*is_first) = 1;
+            (*rounds_played)++;
         }
     }else{
         printf("X _ | ");
-        *rounds_played++;
+        (*rounds_played)++;
     }
 }
 
 void printLastFrame(int* game, int i, int* is_first, int* frame, int* rounds_played){
     if (game[i] < 10){
-        if (*is_first){
-            *frame = game[i];
+        if ((*is_first)){
+            (*frame) = game[i];
             printf("%d ", game[i]);
-            *is_first = 0;
+            (*is_first) = 0;
         } else {
-            *frame += game[i];
-            if (*frame == 10){
+            (*frame) += game[i];
+            if ((*frame) == 10){
                 printf("/ ");    
             } else {
                 printf("%d ", game[i]);
             }
-            *is_first = 1;
-            *rounds_played++;
+            (*is_first) = 1;
+            (*rounds_played)++;
         }
     }else{
         printf("X ");
-        *rounds_played++;
+        (*rounds_played)++;
+    }
+}
+
+int makePontuation(int* game, int size){
+    int pontuation = 0, frame = 0, is_first = 1, rounds_played = 1;
+    for (int i = 0; i < size; i++){
+        if (rounds_played <= 9){
+            if (game[i] == 10){
+                pontuation += 10 + game[i+1] + game[i+2];
+                rounds_played++;
+            } else {
+                if (is_first){
+                    pontuation += game[i];
+                    frame = game[i];
+                    is_first = 0;
+                } else {
+                    pontuation += game[i];
+                    frame += game[i];
+                    if (frame == 10){
+                        pontuation += game[i+1];    
+                    }
+                    is_first = 1;
+                    rounds_played++;
+                }
+            }
+        }else{
+            if (game[i] == 10){
+                pontuation += 10 + game[i+1] + game[i+2];
+                return pontuation;
+            } else {
+                if (is_first){
+                    pontuation += game[i];
+                    frame = game[i];
+                    is_first = 0;
+                } else {
+                    pontuation += game[i];
+                    frame += game[i];
+                    if (frame == 10){
+                        pontuation += game[i+1];    
+                    }
+                    is_first = 1;
+                    rounds_played++;
+                    return pontuation;
+                }
+            }
+        }
     }
 }
 
@@ -67,7 +113,6 @@ int main(int argc, char const *argv[]){
     int size = 21;
     int* game = makeFrames(&size);
     int frame = 0, final_pontuation = 0, is_first = 1, rounds_played = 1;
-    printf("\n");
     for(int i = 0; i < size; i++){
         if (rounds_played <= 9){
             printNormalFrame(game, i, &is_first, &frame, &rounds_played);
@@ -75,5 +120,7 @@ int main(int argc, char const *argv[]){
             printLastFrame(game, i, &is_first, &frame, &rounds_played);
         }
     }
+    final_pontuation = makePontuation(game, size);
+    printf("\n%d", final_pontuation);
     return 0;
 }
