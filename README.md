@@ -80,7 +80,11 @@ In this activity we have a [List of exercises](https://docs.google.com/document/
 3. Counting occurrences of a character in a string
 4. Palindrome
 5. Anagram
-...
+### **List F:** *Matrix*
+1. Print a matrix
+2. Add the rows of a matrix
+3. Add the columns of a matrix
+### **List G:** *Complex Programs*
 ## 2<sup>nd</sup> activity: *Million circle*
 There are N people sitting in a circle. The people are numbered sequentially from 1 to N. In the center of the circle, there is a billionaire who likes to give away millions. He will choose one person to win a miliion. To do this, he will eliminate N - 1 people from the circle, following two rules:
 - The billionaire eliminates one person from the circle and always skip the next one, continuing this process until only one person remains, who will be the winner of the prize.
