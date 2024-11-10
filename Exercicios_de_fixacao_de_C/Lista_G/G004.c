@@ -51,5 +51,8 @@ int main(int argc, char const *argv[]){
         vetC = intercalaVetores(vetB, vetA, m, n);
     }
     printVetor(vetC, n+m);
+    free(vetA);
+    free(vetB);
+    free(vetC);
     return 0;
 }

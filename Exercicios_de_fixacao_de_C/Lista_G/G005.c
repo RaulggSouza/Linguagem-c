@@ -40,5 +40,9 @@ int main(int argc, char const *argv[]){
     printMatriz(mat, linhas, colunas);
     printf("\n");
     printTransposta(mat, linhas, colunas);
+    for (int i = 0; i < linhas; i++){
+        free(mat[i]);
+    }
+    free(mat);
     return 0;
 }

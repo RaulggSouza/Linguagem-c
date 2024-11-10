@@ -44,5 +44,8 @@ int main(int argc, char const *argv[]){
     printVetor(vetB, m);
     int* vetC = intercalaVetores(vetA, vetB, n, m);
     printVetor(vetC, n+m);
+    free(vetA);
+    free(vetB);
+    free(vetC);
     return 0;
 }

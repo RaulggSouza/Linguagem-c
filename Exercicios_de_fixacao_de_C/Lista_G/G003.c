@@ -42,5 +42,6 @@ int main(int argc, char const *argv[]){
     scanf("%d", &elem);
     removerElementos(vet, &size, elem);
     printVetor(vet, size);
+    free(vet);
     return 0;
 }

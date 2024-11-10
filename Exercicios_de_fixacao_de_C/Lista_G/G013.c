@@ -128,5 +128,6 @@ int main(int argc, char const *argv[]){
     }else{
         printf("DATA INVALIDA");
     }
+    free(data);
     return 0;
 }

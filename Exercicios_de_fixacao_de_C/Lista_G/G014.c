@@ -138,6 +138,13 @@ T_CALENDARIO* criaCalendario(int size){
     return calendario;
 }
 
+void freeCalendario(T_CALENDARIO* c){
+    for (int i = 0; i < c->size; i++){
+        free(c->data[i]);
+    }
+    free(c);
+}
+
 int main(int argc, char const *argv[]){
     int n;
     scanf("%d", &n);
@@ -149,5 +156,6 @@ int main(int argc, char const *argv[]){
             printf("DATA INVALIDA\n");
         }
     }
+    freeCalendario(calendario);
     return 0;
 }

@@ -37,5 +37,6 @@ int main(int argc, char const *argv[]){
         deci += potencia(2, expoentes[j]);
     }
     printf("%d", deci);
+    free(expoentes);
     return 0;
 }

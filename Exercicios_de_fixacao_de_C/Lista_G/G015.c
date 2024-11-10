@@ -30,5 +30,7 @@ int main(int argc, char const *argv[]){
     T_PONTO* p2 = criarPonto();
     float distEuclidiana = calcularDistanciaEuclidiana(p1, p2);
     printf("%.4f", distEuclidiana);
+    free(p1);
+    free(p2);
     return 0;
 }

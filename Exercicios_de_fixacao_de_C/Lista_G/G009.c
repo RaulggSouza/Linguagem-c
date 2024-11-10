@@ -19,5 +19,6 @@ int main(int argc, char const *argv[]){
     for (int j = i; j >= 0; j--){
         printf("%d", bin[j]);
     }
+    free(bin);
     return 0;
 }
