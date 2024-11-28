@@ -59,17 +59,19 @@ void P8_to_P2(FILE *fd, int row, int column, int depth, FILE *saida){
         while(count > 0){
             matrix[i][j] = (char*) malloc(sizeof(char) * depth);
             fscanf(fd, "%s", matrix[i][j]);
-            if (strcmp(matrix[i][j], "@") == 0){
-                compacted++;
-            }else if(compacted == 1){
-                compacted++;
-                elem = atoi(matrix[i][j]);
-            }else if (compacted == 2){
-                int k = atoi(matrix[i][j]);
-                count -= k;
-                unzipLine(k, saida, elem);
-                elem = -1;
-                compacted = 0;
+            if (strcmp(matrix[i][j], "@") == 0 || compacted > 0){
+                if(compacted == 1){
+                    compacted++;
+                    elem = atoi(matrix[i][j]);
+                }else if (compacted == 2){
+                    int k = atoi(matrix[i][j]);
+                    count -= k;
+                    unzipLine(k, saida, elem);
+                    elem = -1;
+                    compacted = 0;
+                } else {
+                    compacted++;
+                }
             } else {
                 count--;
                 unzipLine(1, saida, atoi(matrix[i][j]));
