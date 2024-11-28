@@ -16,6 +16,12 @@ void zipLine(int count, FILE *saida, int **matrix, int i, int j){
     }
 }
 
+void unzipLine(int count, FILE *saida, int elem){
+    for(int k = 0; k < count; k++){
+        fprintf(saida, "%d ", elem);
+    }
+}
+
 void P2_to_P8(FILE *fd, int row, int column, int depth, FILE *saida){
     fprintf(saida, "P8\n%d %d\n%d\n", column, row, depth);
     int** matrix = (int**) malloc(sizeof(int*) * row);
@@ -43,29 +49,35 @@ void P2_to_P8(FILE *fd, int row, int column, int depth, FILE *saida){
 
 void P8_to_P2(FILE *fd, int row, int column, int depth, FILE *saida){
     fprintf(saida, "P2\n%d %d\n%d\n", column, row, depth);
-//     char*** matrix = (char***) malloc(sizeof(char**) * row);
-//     for(int i = 0; i < row; i++){
-//         matrix[i] = (char**) malloc(sizeof(char*) * column);
-//         int j = 0;
-//         char* c;
-//         while (fgets(c, 2, fd) != EOF){
-//             if(c != ' '){
-//                 j++;
-//                 matrix[i][j] = c;
-//                 printf("%c", matrix[i][j]);
-//                 fprintf(saida, "%c ", matrix[i][j]);
-//             }
-//         }
-        // for (int j = 0; j < column; j++){
-        //     fscanf(fd, "%c", &matrix[i][j]);
-        // }
-    // }
-    // for(int i = 0; i < row; i++){
-    //     matrix[i] = (char*) malloc(sizeof(char) * column);
-    //     for (int j = 0; j < column; j++){
-    //         fscanf(fd, "%d", &matrix[i][j]);
-    //     }
-    // }
+    char*** matrix = (char***) malloc(sizeof(char**) * row);
+    for(int i = 0; i < row; i++){
+        matrix[i] = (char**) malloc(sizeof(char*) * column);
+        int count = column;
+        int j = 0;
+        int compacted = 0;
+        int elem = -1;
+        while(count > 0){
+            matrix[i][j] = (char*) malloc(sizeof(char) * depth);
+            fscanf(fd, "%s", matrix[i][j]);
+            if (strcmp(matrix[i][j], "@") == 0){
+                compacted++;
+            }else if(compacted == 1){
+                compacted++;
+                elem = atoi(matrix[i][j]);
+            }else if (compacted == 2){
+                int k = atoi(matrix[i][j]);
+                count -= k;
+                unzipLine(k, saida, elem);
+                elem = -1;
+                compacted = 0;
+            } else {
+                count--;
+                unzipLine(1, saida, atoi(matrix[i][j]));
+            }
+            j++;
+        }
+        fprintf(saida,"\n");
+    }
 }
 
 int main(int argc, char const *argv[]){
