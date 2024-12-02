@@ -45,6 +45,10 @@ void P2_to_P8(FILE *fd, int row, int column, int depth, FILE *saida){
         zipLine(count, saida, matrix, i, j);
         fprintf(saida, "\n");
     }
+    for (int i = 0; i < row; i++){
+        free(matrix[i]);
+    }
+    free(matrix);
 }
 
 void P8_to_P2(FILE *fd, int row, int column, int depth, FILE *saida){
@@ -80,6 +84,13 @@ void P8_to_P2(FILE *fd, int row, int column, int depth, FILE *saida){
         }
         fprintf(saida,"\n");
     }
+    for (int i = 0; i < row; i++){
+        for (int j = 0; j < column; j++){
+            free(matrix[i][j]);
+        }
+        free(matrix[i]);
+    }
+    free(matrix);
 }
 
 int main(int argc, char const *argv[]){
